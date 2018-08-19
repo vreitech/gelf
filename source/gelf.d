@@ -460,7 +460,8 @@ abstract class GrayLogger : Logger
 		sink(`,"line":`);
 		sink.formatValue(payload.line, fmt);
 		sink(`,"file":"`);
-		sink.formatValue(payload.file, fmt);
+		import std.string : replace;
+		sink.formatValue(replace(payload.file, `\`, `\\`), fmt);
 		sink(`","_func_name":"`);
 		sink(payload.funcName);
 		sink(`","_pretty_func_name":"`);
