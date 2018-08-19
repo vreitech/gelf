@@ -288,7 +288,7 @@ class UdpGrayLogger : SocketGrayLogger
 		v = log level
 		chunk = maximal chunk size (size of UDP datagram)
 	*/
-	this(UdpSocket socket, Compress compress, string host, LogLevel v, int chunk = 8192) @safe
+	this(UdpSocket socket, Compress compress, string host, LogLevel v, int chunk = 8192) @system
 	{
 		super(socket, compress, host, v);
 		if(chunk < 512)
